@@ -1,0 +1,33 @@
+<form [formGroup]="signupForm" >
+
+  <h1>Sign Up</h1>
+  
+  <fieldset>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="user_name" formControlName="userName">
+    <div class ="validationdiv" *ngIf="!signupForm.controls['userName'].valid && signupForm.controls['userName'].touched"><span class="messegeborder">Usernanme required</span>  </div>
+   </div>
+    <div class="form-group">
+    <label for="mail">Email:</label>
+    <input type="email" id="mail" name="user_email" formControlName="email">
+    <div class ="validationdiv" *ngIf="!signupForm.controls['email'].valid && signupForm.controls['email'].touched"><span class="messegeborder">Email Id required </span> </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="user_password" formControlName="password">
+    <div class ="validationdiv" *ngIf="!signupForm.controls['password'].valid && signupForm.controls['password'].touched"><span class="messegeborder">Password required</span>  </div>
+  </div>
+  <div class="form-group">
+    <label for="confirmpassword">Confirm Password:</label>
+    <input type="password" id="confirmpassword" name="user_confirm_password" formControlName="confirmpassword">
+    <div class ="validationdiv" *ngIf="!signupForm.controls['confirmpassword'].valid && signupForm.controls['confirmpassword'].touched"><span class="messegeborder">Confirm Password required</span>  </div>
+  </div>
+   <!--  <label for="confirm_password">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="user_confirm_password">
+     -->
+  </fieldset>
+  
+ 
+  <button type="submit" [disabled]="!signupForm.valid" (click)="save();">Sign Up</button>
+</form>
